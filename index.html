@@ -5,7 +5,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>HTML test page</title>
-	<link rel="stylesheet" href="./dist/pds-styles.css">
 </head>
 
 <body>
@@ -192,7 +191,7 @@
 			<p><code>kbd</code> and <code>samp</code>: I did this:</p>
 			<pre><samp>c:\&gt;<kbd>format c: /yes</kbd></samp></pre>
 			<p>
-				Is that bad? Press <kbd><kbd>Ctrl</kbd></kbd>+<kbd><kbd>F5</kbd></kbd> for a hard reload.
+				Is that bad? Press <kbd class="key">Ctrl</kbd>+<kbd class="key">F5</kbd> for a hard reload.
 			</p>
 			<p>
 				<code>var</code>: To log in, type
@@ -314,11 +313,11 @@
 				</p>
 				<p>
 					<label for="example-input-readonly">Read-only</label>
-					<input type="text" readonly value="Can't touch this!">
+					<input type="text" id="example-input-readonly" readonly value="Can't touch this!">
 				</p>
 				<p>
 					<label for="example-input-disabled">Disabled</label>
-					<input type="text" disabled value="Not available">
+					<input type="text" id="example-input-disabled" disabled value="Not available">
 				</p>
 				<p>
 					<label for="example-input-file">File input</label>
@@ -334,27 +333,7 @@
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-					</select>
-				</p>
-				<p>
-					<label for="example-select1a">Select with size</label>
-					<select id="example-select1a" size="2">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-					</select>
-				</p>
-				<p>
-					<label for="example-select2">Multiple select</label>
-					<select multiple id="example-select2">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
+						<option disabled>4</option>
 						<option>5</option>
 					</select>
 				</p>
@@ -367,37 +346,7 @@
 						</optgroup>
 						<optgroup label="German Cars">
 							<option>Mercedes</option>
-							<option>Audi</option>
-						</optgroup>
-					</select>
-				</p>
-				<p>
-					<label for="example-optgroup2">Select with optgroup and size:Favorite Dish</label>
-					<select id="example-optgroup2" size="2">
-						<optgroup label="Vegetarian">
-							<option>Green Salad</option>
-							<option>French Fries</option>
-						</optgroup>
-						<optgroup label="Carnivorous">
-							<option>Big Mac</option>
-							<option>Roast Beef</option>
-						</optgroup>
-					</select>
-				</p>
-				<p>
-					<label for="example-optgroup3">Multiple select with optgroup: Public transport</label>
-					<select id="example-optgroup3" multiple>
-						<optgroup label="Ground">
-							<option>Train</option>
-							<option>Bus</option>
-						</optgroup>
-						<optgroup label="Water">
-							<option>Ship</option>
-							<option>Submarine</option>
-						</optgroup>
-						<optgroup label="Air">
-							<option>Plane</option>
-							<option>Balloon</option>
+							<option disabled>Audi</option>
 						</optgroup>
 					</select>
 				</p>
@@ -414,12 +363,12 @@
 					</div>
 					<div>
 						<input type="radio" name="option-radio" id="option-radio2" value="option2">
-						<label>Option two can be something else and selecting it will deselect
+						<label for="option-radio2">Option two can be something else and selecting it will deselect
 							option one</label>
 					</div>
 					<div>
 						<input type="radio" name="option-radio" id="option-radio3" value="option3" disabled>
-						<label>Option three is disabled</label>
+						<label for="option-radio3">Option three is disabled</label>
 					</div>
 				</fieldset>
 				<fieldset>
@@ -487,31 +436,30 @@
 				<output name="o" for="a b"></output>
 			</form>
 			<p><code>pre</code>:</p>
-			<pre>pre {
-display: block;
-padding: 7px;
-background-color: #F5F5F5;
-border: 1px solid #E1E1E8;
-border-radius: 3px;
-white-space: pre-wrap;
-word-break: break-all;
-font-family: Menlo, Monaco;
-line-height: 160%;
-}</pre>
-			<pre><samp>You are in an open field west of a big white house with a boarded
-front door.
+			<pre tabindex="0"><code>pre {
+	display: block;
+	padding: 7px;
+	background-color: #F5F5F5;
+	border: 1px solid #E1E1E8;
+	border-radius: 3px;
+	white-space: pre-wrap;
+	word-break: break-all;
+	font-family: Menlo, Monaco;
+	line-height: 160%;
+}</code></pre>
+			<pre tabindex="0"><samp>You are in an open field west of a big white house with a boarded front door.
 There is a small mailbox here.
 
-></samp> <kbd>open mailbox</kbd>
+&gt;</samp> <kbd>open mailbox</kbd>
 
 <samp>Opening the mailbox reveals:
 A leaflet.
 
-></samp></pre>
+&gt;</samp></pre>
 			<br><br>
 			<h4 id="tables"><a href="#tables">#</a> Tables</h4>
 			<hr>
-			<div style="overflow-x: auto;">
+			<div style="overflow-x: auto;" tabindex="0">
 				<table>
 					<caption>
 						Tables can have captions now.
@@ -559,7 +507,7 @@ A leaflet.
 				column, with the negative side in the left column and the positive
 				side in the right column.
 			</p>
-			<div style="overflow-x: auto;">
+			<div style="overflow-x: auto;" tabindex="0">
 				<table aria-describedby="table-summary">
 					<caption>
 						Characteristics with positive and negative sides
@@ -585,7 +533,7 @@ A leaflet.
 					</tbody>
 				</table>
 			</div>
-			<div style="overflow-x: auto;">
+			<div style="overflow-x: auto;" tabindex="0">
 				<table>
 					<caption>
 						Complex table with a
